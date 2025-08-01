@@ -1,0 +1,18 @@
+resource "aws_iam_user" "users" {
+  for_each = var.iam_users
+  name = each.key
+  path = each.value.path
+
+
+  tags = {
+    CreatedBy = "Terraform"
+    Path = each.value.path
+  }
+}
+
+resource "aws_iam_user_policy_attachment" "policy_attachment" {
+  for_each = local.map_user_policy
+
+  user = each.value.user
+  policy_arn = "arn:aws:iam::aws:policy/${each.value.policy}"
+}

@@ -1,11 +1,13 @@
 # variable "user_tags" {
 #   type = map(string)
+
+#   default = {}
 # }
 
 variable "iam_users" {
   type = map(object({
-    path      = string
-    policy    = list(string)
+    path       = string
+    policy     = list(string)
     permission = list(string)
   }))
 }

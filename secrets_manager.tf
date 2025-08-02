@@ -20,12 +20,3 @@ resource "aws_secretsmanager_secret_version" "secret_version" {
     secret_access_key = aws_iam_access_key.users_access_key[each.key].secret
   })
 }
-
-# output "access_keys" {
-#   sensitive = true
-#   value = [for key in keys(var.iam_users) : {
-#     username          = key
-#     access_key_id     = aws_iam_access_key.users_access_key[key].id
-#     secret_access_key = aws_iam_access_key.users_access_key[key].secret
-#   }]
-# }

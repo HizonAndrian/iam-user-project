@@ -22,7 +22,6 @@ resource "aws_secretsmanager_secret_version" "secret_version" {
 }
 
 # output "access_keys" {
-
 #   sensitive = true
 #   value = [for key in keys(var.iam_users) : {
 #     username          = key

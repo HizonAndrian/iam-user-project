@@ -31,7 +31,7 @@ resource "aws_iam_user_policy" "iam_policy" {
   policy = jsonencode({
     Statement = [
       {
-        Action = each.value
+        Action   = each.value
         Effect   = "Allow"
         Resource = "*"
       }

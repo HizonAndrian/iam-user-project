@@ -24,8 +24,3 @@ locals {
     user_key => user_value.permission
   }
 }
-
-
-output "display" {
-  value = local.compiled_permission
-}

@@ -1,4 +1,4 @@
-#This one local created a list from our var.iam_users
+#This local creates a list from our var.iam_users
 locals {
   flatten_user_policy = flatten([
     for user_key, user_value in var.iam_users : [
@@ -19,8 +19,23 @@ locals {
 }
 
 locals {
-  compiled_permission = {
-    for user_key, user_value in var.iam_users :
-    user_key => user_value.permission
+  flatten_permission = flatten([
+    for user_key, user_value in var.iam_users : [
+      for permission in user_value.permission : {
+        user       = user_key
+        permission = permission
+      }
+    ]
+  ])
+}
+
+locals {
+  map_user_permission = {
+    for item in local.flatten_permission :
+    "${item.user}-${item.permission}" => item
   }
+}
+
+output "tester" {
+  value = local.map_user_permission
 }

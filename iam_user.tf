@@ -23,15 +23,15 @@ resource "aws_iam_access_key" "access_keys" {
 }
 
 resource "aws_iam_user_policy" "iam_policy" {
-  for_each = local.compiled_permission
+  for_each = local.map_user_permission
 
   name = each.key
-  user = each.key
+  user = each.value.user
 
   policy = jsonencode({
     Statement = [
       {
-        Action   = "${each.value}"
+        Action   = each.value.permission
         Effect   = "Allow"
         Resource = "*"
       }

@@ -10,6 +10,8 @@ resource "aws_iam_user" "users" {
   }
 }
 
+
+#Managed
 resource "aws_iam_user_policy_attachment" "policy_attachment" {
   for_each = local.map_user_policy
 
@@ -22,6 +24,7 @@ resource "aws_iam_access_key" "access_keys" {
   user     = each.key
 }
 
+#Inline
 resource "aws_iam_user_policy" "iam_policy" {
   for_each = local.map_user_permission
 

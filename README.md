@@ -2,7 +2,7 @@
 
 
 # Project Overview
-    This project demonstrates how to manage AWS IAM users and policies using Terraform. It includes creation of IAM users, IAM policies, optional group attachments, and secure storage of access keys in AWS Secrets Manager. The project is Terraform Cloud-ready with CLI-driven runs.
+ This project demonstrates how to manage AWS IAM users and policies using Terraform. It includes creation of IAM users, IAM policies, optional group attachments, and secure storage of access keys in AWS Secrets Manager. The project is Terraform Cloud-ready with CLI-driven runs.
 
 
 # Key Highlights:

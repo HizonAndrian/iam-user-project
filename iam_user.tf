@@ -19,10 +19,6 @@ resource "aws_iam_user_policy_attachment" "policy_attachment" {
   policy_arn = "arn:aws:iam::aws:policy/${each.value.policy}"
 }
 
-# resource "aws_iam_access_key" "access_keys" {
-#   for_each = var.iam_users
-#   user     = each.key
-# }
 
 #Inline
 resource "aws_iam_user_policy" "iam_policy" {

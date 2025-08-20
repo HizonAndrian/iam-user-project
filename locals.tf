@@ -1,4 +1,4 @@
-#This local creates a list from our var.iam_users
+#This local creates a flatten list from our var.iam_users
 locals {
   flatten_user_policy = flatten([
     for user_key, user_value in var.iam_users : [
@@ -10,7 +10,8 @@ locals {
   ])
 }
 
-#Created a flatten map
+#From list to map, base on locals.flatten_user_policy
+#In order to use for_each, we need to use a Map
 locals {
   map_user_policy = {
     for item in local.flatten_user_policy :
@@ -36,6 +37,3 @@ locals {
   }
 }
 
-output "tester" {
-  value = local.map_user_permission
-}

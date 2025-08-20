@@ -3,11 +3,6 @@ resource "aws_iam_group" "engr_group" {
   name = "engineer_group"
 }
 
-moved {
-  from = aws_iam_group.grp_name
-  to = aws_iam_group.engr_group
-}
-
 #Attach policy to the group.
 resource "aws_iam_group_policy_attachment" "grp_policy" {
   for_each   = var.policy_map

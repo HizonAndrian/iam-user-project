@@ -7,7 +7,7 @@ resource "aws_iam_access_key" "users_access_key" {
 resource "aws_secretsmanager_secret" "iam_user_keys" {
   for_each = var.iam_users
 
-  name = "${each.key}_access_keys"
+  name = "${each.key}_access_keys_v2"
 }
 
 

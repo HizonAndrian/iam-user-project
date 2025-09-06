@@ -6,6 +6,7 @@ variable "iam_users" {
   }))
 }
 
+
 variable "policy_map" {
   type = map(string)
 

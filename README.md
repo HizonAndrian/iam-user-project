@@ -11,3 +11,11 @@
 - Optionally organize users into groups with group policies.
 - Securely store access keys in AWS Secrets Manager.
 - Terraform Cloud integration via CLI-triggered runs.
+
+
+# Architecture / Workflow
+1. Define IAM users, policies, and inline policy in variables.
+2. Terraform creates IAM users using aws_iam_user.
+3. IAM policies are created and attached via Terraform.
+4. Optionally, users are added to groups with attached policies.
+5. Access keys are generated and stored securely in AWS Secrets Manager.
